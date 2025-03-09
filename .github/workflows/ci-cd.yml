@@ -21,7 +21,7 @@ jobs:
         POSTGRES_PASSWORD=12345678
         POSTGRES_DB=test_coredb
         ENV=TESTING
-        DJANGO_ALLOWED_HOSTS=127.0.0.1,localhost
+        DJANGO_ALLOWED_HOSTS=127.0.0.1,localhost,13.53.177.141
           " >> .env
     - name: Building Docker containers
       run: |
