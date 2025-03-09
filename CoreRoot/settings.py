@@ -158,7 +158,7 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 15
 }
 CORS_ALLOWED_ORIGINS = [
- "https://ed-5827941652496384.educative.run:3000"
+ "http://localhost:3000",
 ]
 
 # Media files
