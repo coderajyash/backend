@@ -10,6 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import os
+from dotenv import load_dotenv
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -19,13 +21,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
+load_dotenv()
+
+ENV = os.environ.get("ENV")
+
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3&#hhp%8#5imvz6zndwlfq$5lr@vbu^cd(tj%gk#=%+&8tkf&l'
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY", default="django-insecure-3&#hhp%8#5imvz6zndwlfq$5lr@vbu^cd(tj%gk#=%+&8tkf&l"
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False if ENV == "PROD" else True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "*").split(",")
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -85,13 +94,13 @@ WSGI_APPLICATION = 'CoreRoot.wsgi.application'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'djangodb',  # Change "djangoDB" to "djangodb"
-        'USER': 'myuser',
-        'PASSWORD': '12345',
-        'HOST': 'localhost',
-        'PORT': '5432',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("DATABASE_NAME", "djangodb"),
+        "USER": os.getenv("DATABASE_USER", "myuser"),
+        "PASSWORD": os.getenv("DATABASE_PASSWORD", "12345"),
+        "HOST": os.environ.get("DATABASE_HOST", "localhost"),
+        "PORT": os.getenv("DATABASE_PORT", "5432"),
     }
 }
 
@@ -149,11 +158,11 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 15
 }
 CORS_ALLOWED_ORIGINS = [
- "http://localhost:3000",
+ "https://ed-5827941652496384.educative.run:3000"
 ]
 
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'uploads'
 
-DEFAULT_AVATAR_URL = "https://api.dicebear.com/7.x/identicon/svg?seed=Ginger"
+DEFAULT_AVATAR_URL = "https://avatars.dicebear.com/api/identicon/.svg"
