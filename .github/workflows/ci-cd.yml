@@ -23,6 +23,10 @@ jobs:
         ENV=TESTING
         DJANGO_ALLOWED_HOSTS=127.0.0.1,localhost,13.53.177.141
           " >> .env
+    - name: Install Docker Compose
+      run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-compose
     - name: Building Docker containers
       run: |
         docker-compose up -d --build
