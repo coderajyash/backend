@@ -157,9 +157,9 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     'https://momento-tau-two.vercel.app'
 ]
-
+CORS_ALLOW_HEADERS = ["*"]
 # CORS_ALLOW_ALL_ORIGINS = True
-
+CORS_ALLOW_METHODS = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'uploads'
