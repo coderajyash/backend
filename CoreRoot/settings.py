@@ -163,6 +163,8 @@ CORS_ALLOWED_ORIGINS = [
  "https://momento-tau-two.vercel.app"
 ]
 
+# CORS_ALLOW_ALL_ORIGINS = True
+
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'uploads'
