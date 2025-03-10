@@ -83,3 +83,6 @@ class TestPostViewSet:
     def test_delete_anonymous(self, client, post):
         response = client.delete(self.endpoint + str(post.public_id) + "/")
         assert response.status_code == status.HTTP_401_UNAUTHORIZED
+
+
+    #sa
