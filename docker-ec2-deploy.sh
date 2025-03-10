@@ -2,7 +2,7 @@
 
 TARGET='main'
 
-cd ~/home/ubuntu/backend || exit
+cd ~/backend || exit
 
 ACTION_COLOR='\033[1;90m'
 NO_COLOR='\033[0m'
