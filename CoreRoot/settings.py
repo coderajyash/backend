@@ -163,7 +163,18 @@ CORS_ALLOWED_ORIGINS = [
 
 # CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins
 CORS_ALLOW_CREDENTIALS = True  # Allow credentials (cookies, auth headers)
+CORS_ALLOW_HEADERS = [
+    "content-type",
+    "authorization",
+    "x-csrftoken",
+    "x-requested-with",
+]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://momento-tau-two.vercel.app",
+    "http://localhost:3000",
+    "http://13.53.177.141:8000",
+]
 
 # CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_METHODS = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
