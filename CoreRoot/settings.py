@@ -154,6 +154,12 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 15
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "https://momento-tau-two.vercel.app",  # Add frontend URL
+    "http://localhost:3000",  # If running frontend locally
+]
+
 CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins
 CORS_ALLOW_CREDENTIALS = True  # Allow credentials (cookies, auth headers)
 
