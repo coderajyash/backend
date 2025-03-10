@@ -2,7 +2,7 @@
 
 TARGET='main'
 
-cd ~/api || exit
+cd ~/home/ubuntu/backend || exit
 
 ACTION_COLOR='\033[1;90m'
 NO_COLOR='\033[0m'
