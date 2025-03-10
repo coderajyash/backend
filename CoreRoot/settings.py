@@ -160,7 +160,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # If running frontend locally
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins
+# CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins
 CORS_ALLOW_CREDENTIALS = True  # Allow credentials (cookies, auth headers)
 
 
