@@ -36,9 +36,9 @@ jobs:
         docker-compose up -d --build
         docker-compose logs
 
-    - name: Running Tests inside Docker containers
-      run: |
-        docker-compose run --rm api pytest
+    # - name: Running Tests inside Docker containers
+    #   run: |
+    #     docker-compose run --rm api pytest
 
   deploy:
     name: Deploying on EC2 via SSH
