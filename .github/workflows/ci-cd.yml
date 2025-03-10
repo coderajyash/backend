@@ -21,19 +21,17 @@ jobs:
         POSTGRES_PASSWORD=12345678
         POSTGRES_DB=test_coredb
         ENV=TESTING
-        DJANGO_ALLOWED_HOSTS=127.0.0.1,localhost,13.53.177.141,ec2-13-53-177-141.eu-north-1.compute.amazonaws.com
+        DJANGO_ALLOWED_HOSTS=0.0.0.0,'https://localhost:8000'.replace('https://',''),localhost
           " >> .env
-    - name: Install Docker Compose
-      run: |
-          sudo apt-get update
-          sudo apt-get install -y docker-compose
     - name: Building Docker containers
       run: |
         docker-compose up -d --build
-    # - name: Running Tests inside Docker containers
-    #   run: |
-    #     docker-compose exec -T api pytes
-    deploy:
+        docker-compose logs
+    - name: Running Tests inside Docker containers
+      run: |
+        docker-compose exec -T api pytest
+
+  deploy:
     name: Deploying on EC2 via SSH
     if: ${{ github.event_name == 'push' }}
     needs: [build-test]
