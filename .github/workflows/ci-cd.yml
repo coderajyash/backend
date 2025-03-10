@@ -9,9 +9,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    
+    - name: Install Docker Compose
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y docker-compose
+
     - name: Injecting environment vars
       run: |
-        echo "SECRET_KEY=test_foo
+        cat <<EOF > .env
+        SECRET_KEY=test_foo
         DATABASE_NAME=test_coredb
         DATABASE_USER=test_core
         DATABASE_PASSWORD=12345678
@@ -21,15 +28,17 @@ jobs:
         POSTGRES_PASSWORD=12345678
         POSTGRES_DB=test_coredb
         ENV=TESTING
-        DJANGO_ALLOWED_HOSTS=0.0.0.0,'https://localhost:8000'.replace('https://',''),localhost
-          " >> .env
+        DJANGO_ALLOWED_HOSTS=0.0.0.0,localhost
+        EOF
+
     - name: Building Docker containers
       run: |
         docker-compose up -d --build
         docker-compose logs
+
     - name: Running Tests inside Docker containers
       run: |
-        docker-compose exec -T api pytest
+        docker-compose run --rm api pytest
 
   deploy:
     name: Deploying on EC2 via SSH
@@ -38,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Deploying Application on EC2
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v0.1.4
       with:
         host: ${{ secrets.SSH_EC2_IP }}
         username: ${{ secrets.SSH_EC2_USER }}
