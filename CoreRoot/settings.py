@@ -154,13 +154,10 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 15
 }
-CORS_ALLOWED_ORIGINS = [
-    'https://momento-tau-two.vercel.app'
-]
+CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins
+CORS_ALLOW_CREDENTIALS = True  # Allow credentials (cookies, auth headers)
 
-CORS_ALLOW_ALL_ORIGINS = True 
-CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_HEADERS = ["*"]
+
 # CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_METHODS = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
 # Media files
