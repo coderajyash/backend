@@ -39,7 +39,7 @@ jobs:
     # - name: Running Tests inside Docker containers
     #   run: |
     #     docker-compose run --rm api pytest
-
+#work
   deploy:
     name: Deploying on EC2 via SSH
     if: ${{ github.event_name == 'push' }}
