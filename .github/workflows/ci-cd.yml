@@ -57,5 +57,6 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         passphrase: ${{ secrets.SSH_PASSPHRASE }}
         script: |
-          cd ~/.scripts
+          cd /home/ubuntu/backend
+          chmod +x docker-ec2-deploy.sh
           ./docker-ec2-deploy.sh
