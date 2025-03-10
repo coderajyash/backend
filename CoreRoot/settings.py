@@ -157,7 +157,8 @@ REST_FRAMEWORK = {
 
 CORS_ALLOWED_ORIGINS = [
     "https://momento-tau-two.vercel.app",  # Add frontend URL
-    "http://localhost:3000",  # If running frontend locally
+    "http://localhost:3000",
+    "http://13.53.177.141:8000"  # If running frontend locally
 ]
 
 # CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins
