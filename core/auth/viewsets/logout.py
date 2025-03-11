@@ -3,7 +3,6 @@ from rest_framework import viewsets, status, permissions
 from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
 
-
 class LogoutViewSet(viewsets.ViewSet):
     authentication_classes = ()
     permission_classes = (permissions.IsAuthenticated,)
