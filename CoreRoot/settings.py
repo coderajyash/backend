@@ -45,7 +45,7 @@ CORS_ALLOWED_ORIGINS = [
 CSRF_TRUSTED_ORIGINS = [
     'https://momento-tau-two.vercel.app',
     "http://localhost:3000",
-    "http://13.53.177.141:8000" 
+    "http://13.53.177.141:8000"
 ]
 
 # CORS_ALLOW_ALL_ORIGINS = True
@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
+    "rest_framework_simplejwt.token_blacklist",
     'rest_framework',
     'rest_framework_simplejwt',
     'core',
