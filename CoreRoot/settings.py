@@ -47,6 +47,9 @@ ALLOWED_HOSTS = ["0.0.0.0", "13.53.177.141","momento-tau-two.vercel.app","127.0.
 #     "http://localhost:3000",
 #     "http://13.53.177.141:8000"
 # ]
+CSRF_TRUSTED_ORIGINS = ["*"]
+
+CORS_ALLOW_METHODS = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
 
 CORS_ALLOW_ALL_ORIGINS = True
 INSTALLED_APPS = [
@@ -72,7 +75,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -153,19 +156,6 @@ REST_FRAMEWORK = {
 }
 
 
-# CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins
-CORS_ALLOW_CREDENTIALS = True  # Allow credentials (cookies, auth headers)
-# CORS_ALLOW_HEADERS = [
-#     "content-type",
-#     "authorization",
-#     "x-csrftoken",
-#     "x-requested-with",
-# ]
-
-
-
-# CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOW_METHODS = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
 # Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'uploads'
