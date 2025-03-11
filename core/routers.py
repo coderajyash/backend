@@ -2,7 +2,13 @@ from rest_framework_nested import routers
 
 from core.post.viewsets import PostViewSet
 from core.user.viewsets import UserViewSet
-from core.auth.viewsets import RegisterViewSet, LoginViewSet, RefreshViewSet, LogoutViewSet
+from core.auth.viewsets import (
+    RegisterViewSet,
+    LoginViewSet,
+    RefreshViewSet,
+    LogoutViewSet,
+)
+from core.auth.viewsets import LogoutViewSet
 from core.comment.viewsets import CommentViewSet
 
 router = routers.SimpleRouter()
