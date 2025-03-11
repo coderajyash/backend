@@ -37,18 +37,18 @@ DEBUG = False if ENV == "PROD" else True
 ALLOWED_HOSTS = ["0.0.0.0", "13.53.177.141", "momento-tau-two.vercel.app","127.0.0.1","localhost","13.53.177.141,ec2-13-53-177-141.eu-north-1.compute.amazonaws.com"]
 # Application definition
 
-CORS_ALLOWED_ORIGINS = [
-    "https://momento-tau-two.vercel.app",  # Add frontend URL
-    "http://localhost:3000",
-    "http://13.53.177.141:8000"  # If running frontend locally
-]
-CSRF_TRUSTED_ORIGINS = [
-    'https://momento-tau-two.vercel.app',
-    "http://localhost:3000",
-    "http://13.53.177.141:8000"
-]
+# CORS_ALLOWED_ORIGINS = [
+#     "https://momento-tau-two.vercel.app",  # Add frontend URL
+#     "http://localhost:3000",
+#     "http://13.53.177.141:8000"  # If running frontend locally
+# ]
+# CSRF_TRUSTED_ORIGINS = [
+#     'https://momento-tau-two.vercel.app',
+#     "http://localhost:3000",
+#     "http://13.53.177.141:8000"
+# ]
 
-# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
