@@ -42,13 +42,13 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://13.53.177.141:8000"  # If running frontend locally
 ]
-
 CSRF_TRUSTED_ORIGINS = [
     'https://momento-tau-two.vercel.app',
     "http://localhost:3000",
     "http://13.53.177.141:8000" 
 ]
 
+# CORS_ALLOW_ALL_ORIGINS = True
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -161,11 +161,7 @@ CORS_ALLOW_CREDENTIALS = True  # Allow credentials (cookies, auth headers)
 #     "x-requested-with",
 # ]
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://momento-tau-two.vercel.app",
-    "http://localhost:3000",
-    "http://13.53.177.141:8000",
-]
+
 
 # CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_METHODS = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
