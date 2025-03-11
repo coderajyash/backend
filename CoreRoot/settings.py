@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get(
 DEBUG = False if ENV == "PROD" else True
 
 # ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "*").split(",")
-ALLOWED_HOSTS = ["0.0.0.0", "momento-tau-two.vercel.app","127.0.0.1","localhost","13.53.177.141,ec2-13-53-177-141.eu-north-1.compute.amazonaws.com"]
+ALLOWED_HOSTS = ["0.0.0.0", "13.53.177.141","momento-tau-two.vercel.app","127.0.0.1","localhost","13.53.177.141,ec2-13-53-177-141.eu-north-1.compute.amazonaws.com"]
 # Application definition
 
 # CORS_ALLOWED_ORIGINS = [
