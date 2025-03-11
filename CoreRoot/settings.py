@@ -34,8 +34,20 @@ SECRET_KEY = os.environ.get(
 DEBUG = False if ENV == "PROD" else True
 
 # ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "*").split(",")
-ALLOWED_HOSTS = ["*", "13.53.177.141", "momento-tau-two.vercel.app","127.0.0.1","localhost","13.53.177.141,ec2-13-53-177-141.eu-north-1.compute.amazonaws.com"]
+ALLOWED_HOSTS = ["0.0.0.0", "13.53.177.141", "momento-tau-two.vercel.app","127.0.0.1","localhost","13.53.177.141,ec2-13-53-177-141.eu-north-1.compute.amazonaws.com"]
 # Application definition
+
+CORS_ALLOWED_ORIGINS = [
+    "https://momento-tau-two.vercel.app",  # Add frontend URL
+    "http://localhost:3000",
+    "http://13.53.177.141:8000"  # If running frontend locally
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://momento-tau-two.vercel.app',
+    "http://localhost:3000",
+    "http://13.53.177.141:8000" 
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -45,7 +57,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    # external packages apps
     'rest_framework',
     'rest_framework_simplejwt',
     'core',
@@ -56,9 +67,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -86,10 +97,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'CoreRoot.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -101,9 +108,6 @@ DATABASES = {
     }
 }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -121,9 +125,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/4.0/topics/i18n/
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -133,13 +134,8 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.0/howto/static-files/
-
 STATIC_URL = 'static/'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -155,20 +151,15 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 15
 }
 
-# CORS_ALLOWED_ORIGINS = [
-#     "https://momento-tau-two.vercel.app",  # Add frontend URL
-#     "http://localhost:3000",
-#     "http://13.53.177.141:8000"  # If running frontend locally
-# ]
 
-CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins
+# CORS_ALLOW_ALL_ORIGINS = True  # Allow all origins
 CORS_ALLOW_CREDENTIALS = True  # Allow credentials (cookies, auth headers)
-CORS_ALLOW_HEADERS = [
-    "content-type",
-    "authorization",
-    "x-csrftoken",
-    "x-requested-with",
-]
+# CORS_ALLOW_HEADERS = [
+#     "content-type",
+#     "authorization",
+#     "x-csrftoken",
+#     "x-requested-with",
+# ]
 
 CSRF_TRUSTED_ORIGINS = [
     "https://momento-tau-two.vercel.app",
