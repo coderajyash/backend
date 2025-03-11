@@ -47,7 +47,7 @@ ALLOWED_HOSTS = ["0.0.0.0", "13.53.177.141","momento-tau-two.vercel.app","127.0.
 #     "http://localhost:3000",
 #     "http://13.53.177.141:8000"
 # ]
-CSRF_TRUSTED_ORIGINS = ["*"]
+# CSRF_TRUSTED_ORIGINS = ["*"]
 
 CORS_ALLOW_METHODS = ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
 
